@@ -1,21 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #262626;
+  --foreground: #ffffff;
+  --primary: #1E1E1E;
+  --secondary: #5483a9;
+  --accent: rgb(152, 158, 194);
+  --title-color: #ffffff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Bree Serif', serif;
+}
+
+h1.title {
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 3rem; /* Increased font size */
+  font-weight: bold; /* Bolder font weight */
+  transition: transform 0.3s, color 0.3s;
+}
+
+h1.title:hover {
+  transform: scale(1.2); /* Increase font size on hover */
+}
+
+.tile {
+  background-color: var(--primary);
+  color: var(--foreground);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tile:hover {
+  transform: scale(1.05); /* Increase size on hover */
+}
+
+.tile.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.tile.tall {
+  grid-row: span 2;
+}
+
+.tile.wide {
+  grid-column: span 2;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.popup-content {
+  background-color: var(--primary);
+  color: var(--foreground);
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background-color: var(--secondary);
+}
+
+.close-button::before {
+  content: '✖'; /* Unicode character for a modern "X" */
+  font-size: 1.5rem;
 }
