@@ -25,7 +25,7 @@ h1.title {
   margin-bottom: 20px;
   font-size: 3rem; /* Increased font size */
   font-weight: bold; /* Bolder font weight */
-  transition: transform 0.3s, color 0.3s;
+  transition: color 0.1s; /* Add transition for color */
 }
 
 h1.title:hover {
@@ -39,7 +39,7 @@ h1.title:hover {
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: background-color 0.5s ease; /* Add transition for background color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -70,7 +70,7 @@ h1.title:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 1.3s ease-in-out;
 }
 
 @keyframes fadeIn {
