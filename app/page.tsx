@@ -76,37 +76,37 @@ export default function Home() {
       </h1>
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
         <div className="tile large" onClick={() => openPopup("todo")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Todo List</h3>
+          <h3>Motivational Quote</h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("timer")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Timer</h3>
+          <h3>Action Logs</h3>
         </div>
         <div className="tile thin" onClick={() => openPopup("note")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Note Taker</h3>
+          <h3>Timer</h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra1")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 1</h3>
+          <h3>To-Do List</h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("extra2")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 2</h3>
+          <h3>Calender</h3>
         </div>
         <div className="tile ewide" onClick={() => openPopup("extra3")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 3</h3>
+          <h3>Habit Tracker</h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra4")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 4</h3>
+          <h3>AI Assistant</h3>
         </div>
         <div className="tile large" onClick={() => openPopup("extra5")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 5</h3>
+          <h3>Note Taker</h3>
         </div>
         <div className="tile" onClick={() => openPopup("extra6")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 6</h3>
+          <h3>Meditation</h3>
         </div>
         <div className="tile" onClick={() => openPopup("extra7")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 7</h3>
+          <h3>Music</h3>
         </div>
         <div className="tile ewide" onClick={() => openPopup("extra8")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Extra Feature 8</h3>
+          <h3>Sticky Notes</h3>
         </div>
         {activePopup && (
           <div className="popup">

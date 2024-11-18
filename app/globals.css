@@ -51,6 +51,9 @@ h1.title:hover {
   cursor: pointer;
   transition: background-color 0.25s ease, color 1.5s ease; /* Add transition for color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tile:hover {
