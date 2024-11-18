@@ -23,13 +23,23 @@ h1.title {
   color: var(--title-color);
   text-align: center;
   margin-bottom: 20px;
-  font-size: 3rem; /* Increased font size */
+  font-size: 5rem; /* Increased font size */
   font-weight: bold; /* Bolder font weight */
-  transition: color 0.1s; /* Add transition for color */
+  transition: color 1s; /* Smooth transition for color */
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  text-shadow: 
+    -3px -3px 0 #262626,  
+    3px -3px 0 #262626,
+    -3px 3px 0 #262626,
+    3px 3px 0 #262626;
 }
 
 h1.title:hover {
-  transform: scale(1.2); /* Increase font size on hover */
+  font-size: 5rem; /* Increase font size on hover */
 }
 
 .tile {
@@ -39,12 +49,22 @@ h1.title:hover {
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.5s ease; /* Add transition for background color */
+  transition: background-color 0.25s ease, color 1.5s ease; /* Add transition for color */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .tile:hover {
-  transform: scale(1.05); /* Increase size on hover */
+  transform: scale(1.02); /* Increase size on hover */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-rows: repeat(6, auto);
+  gap: 15px;
+  padding: 10px;
+  width: 115.75%;
+  height: 770px;
 }
 
 .tile.large {
@@ -52,12 +72,21 @@ h1.title:hover {
   grid-row: span 2;
 }
 
+.tile.ewide {
+  grid-column: span 3;
+}
+
 .tile.tall {
-  grid-row: span 2;
+  grid-row: span 3;
 }
 
 .tile.wide {
   grid-column: span 2;
+}
+
+.tile.thin {
+  grid-column: span 1;
+  grid-row: span 2;
 }
 
 .popup {
