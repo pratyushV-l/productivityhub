@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import debounce from 'lodash.debounce';
-import TodoList from "./components/TodoList";
+//import TodoList from "./components/TodoList";
 import Timer from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
 import Quote from "./components/Quote";
