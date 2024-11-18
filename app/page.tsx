@@ -5,7 +5,6 @@ import debounce from 'lodash.debounce';
 import TodoList from "./components/TodoList";
 import Timer from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
-import Image from "next/image";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
