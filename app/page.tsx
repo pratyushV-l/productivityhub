@@ -5,6 +5,7 @@ import debounce from 'lodash.debounce';
 import TodoList from "./components/TodoList";
 import Timer from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
+import Quote from "./components/Quote";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -75,7 +76,7 @@ export default function Home() {
         onlyProductivity
       </h1>
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
-        <div className="tile large" onClick={() => openPopup("todo")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile large" onClick={() => openPopup("quote")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3>Motivational Quote</h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("timer")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
@@ -112,7 +113,7 @@ export default function Home() {
           <div className="popup">
             <div className="popup-content">
               <button className="close-button" onClick={closePopup}></button>
-              {activePopup === "todo" && <TodoList />}
+              {activePopup === "quote" && <Quote />}
               {activePopup === "timer" && <Timer />}
               {activePopup === "note" && <NoteTaker />}
               {activePopup === "extra1" && <div>Extra Feature 1 Content</div>}
