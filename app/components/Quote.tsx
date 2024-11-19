@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const Quote = () => {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const fetchQuote = async () => {
+  const fetchQuote = useCallback(async () => {
     try {
       const response = await fetch("/api/quote");
       const data = await response.json();
@@ -18,11 +18,11 @@ const Quote = () => {
       console.error("Error fetching the quote:", error);
       setError("Failed to fetch quote. Please try again later.");
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchQuote();
-  }, []);
+  }, [fetchQuote]);
 
   return (
     <div
@@ -46,7 +46,7 @@ const Quote = () => {
         <p>{error}</p>
       ) : quote ? (
         <blockquote style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <p style={{ fontSize: '2em', flexGrow: 1 }}>"{quote}"</p>
+          <p style={{ fontSize: '2em', flexGrow: 1 }}>&quot;{quote}&quot;</p>
           <footer style={{ textAlign: 'right', marginTop: '10px' }}>
             - {author}
           </footer>
