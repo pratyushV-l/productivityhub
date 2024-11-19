@@ -28,15 +28,15 @@ export default function Home() {
     const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
 
     if(circle){
-      circle.style.backgroundColor = `${colors[colorIndex]}80`; // Adding opacity
+      circle.style.backgroundColor = `${colors[colorIndex]}40`; // Adding opacity
     }
 
     if(circle2){
-      circle2.style.backgroundColor = `${colors[(colorIndex + 2) % colors.length]}80`; // Different color with opacity
+      circle2.style.backgroundColor = `${colors[(colorIndex + 2) % colors.length]}40`; // Different color with opacity
     }
 
     if(circle3){
-      circle3.style.backgroundColor = `${colors[(colorIndex + 4) % colors.length]}80`; // Another distinct color with opacity
+      circle3.style.backgroundColor = `${colors[(colorIndex + 4) % colors.length]}40`; // Another distinct color with opacity
     }
   }, [colorIndex]);
 
@@ -54,7 +54,7 @@ export default function Home() {
     moveCircle();
 
     // Move every 5 seconds
-    const interval = setInterval(moveCircle, 2000);
+    const interval = setInterval(moveCircle, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -73,7 +73,7 @@ export default function Home() {
     moveCircle2();
 
     // Move every 3 seconds
-    const interval2 = setInterval(moveCircle2, 3000);
+    const interval2 = setInterval(moveCircle2, 1500);
 
     return () => clearInterval(interval2);
   }, []);
@@ -92,7 +92,7 @@ export default function Home() {
     moveCircle3();
 
     // Move every 6 seconds
-    const interval3 = setInterval(moveCircle3, 6000);
+    const interval3 = setInterval(moveCircle3, 500);
 
     return () => clearInterval(interval3);
   }, []);

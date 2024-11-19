@@ -204,8 +204,8 @@ close-button::before {
 
 .blurred-circle {
   position: fixed;
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 500px;
   background: rgba(255, 255, 255, 0.0); /* Initially transparent */
   border-radius: 50%;
   filter: blur(100px);
@@ -218,8 +218,8 @@ close-button::before {
 
 .blurred-circle-2 {
   position: fixed;
-  width: 150px;
-  height: 150px;
+  width: 550px;
+  height: 550px;
   background: rgba(255, 255, 255, 0.0); /* Initially transparent */
   border-radius: 50%;
   filter: blur(80px);
@@ -232,8 +232,8 @@ close-button::before {
 
 .blurred-circle-3 {
   position: fixed;
-  width: 180px;
-  height: 180px;
+  width: 480px;
+  height: 480px;
   background: rgba(255, 255, 255, 0.0); /* Initially transparent */
   border-radius: 50%;
   filter: blur(90px);
