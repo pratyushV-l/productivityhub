@@ -13,17 +13,25 @@
   --title-color: #ffffff;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Bree Serif', serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 h1.title {
   color: var(--title-color);
   text-align: center;
   margin-bottom: 20px;
-  font-size: 5rem; /* Increased font size */
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: bold; /* Bolder font weight */
   transition: color 1s; /* Smooth transition for color */
   position: absolute;
@@ -38,10 +46,6 @@ h1.title {
     3px 3px 0 #262626;
 }
 
-h1.title:hover {
-  font-size: 5rem; /* Increase font size on hover */
-}
-
 .tile {
   background-color: var(--primary);
   color: var(--foreground);
@@ -49,8 +53,8 @@ h1.title:hover {
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 1.5s ease; /* Add transition for color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.25s ease, color 1.5s ease, transform 0.25s ease; /* Add transition for color */
+  box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,12 +66,20 @@ h1.title:hover {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, auto);
-  gap: 15px;
-  padding: 10px;
-  width: 115.75%;
-  height: 770px;
+  gap: 1vw;
+  padding: 1vw;
+  width: 100%; /* Set width to 100% */
+  height: 100%; /* Ensure the grid occupies the full height */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+html, body, .container {
+  width: 100%; /* Ensure parent elements also have a width of 100% */
+  height: 100%; /* Ensure parent elements also have a height of 100% */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 .tile.large {
@@ -158,7 +170,26 @@ h1.title:hover {
   background-color: var(--secondary);
 }
 
-.close-button::before {
+close-button::before {
   content: '✖'; /* Unicode character for a modern "X" */
   font-size: 1.5rem;
+}
+
+/* Media queries for different resolutions */
+@media (max-width: 1600px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
