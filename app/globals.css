@@ -27,13 +27,17 @@ body {
   height: 100vh;
 }
 
+body *:not(h1) {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
 h1.title {
   color: var(--title-color);
   text-align: center;
   margin-bottom: 20px;
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: bold; /* Bolder font weight */
-  transition: color 1s; /* Smooth transition for color */
+  transition: color 1s, text-shadow 1s; /* Smooth transition for color and glow */
   position: absolute;
   top: 5%;
   left: 50%;
@@ -46,14 +50,16 @@ h1.title {
     3px 3px 0 #262626;
 }
 
+
 .tile {
+  /* Existing styles */
   background-color: var(--primary);
   color: var(--foreground);
   padding: 40px;
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 1.5s ease, transform 0.25s ease; /* Add transition for color */
+  transition: background-color 0.25s ease, color 1.5s ease, transform 0.25s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
   box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -192,4 +198,52 @@ close-button::before {
   .grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Add to globals.css */
+
+.blurred-circle {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1; /* Ensure it's below other elements except the background */
+  pointer-events: none; /* Allow interactions through the circle */
+  transition: background-color 5s ease, transform 5s ease;
+}
+
+/* Add to globals.css */
+
+.blurred-circle-2 {
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1; /* Ensure it's below other elements except the background */
+  pointer-events: none; /* Allow interactions through the circle */
+  transition: background-color 7s ease, transform 7s ease;
+}
+
+/* Add to globals.css */
+
+.blurred-circle-3 {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1; /* Ensure it's below other elements except the background */
+  pointer-events: none; /* Allow interactions through the circle */
+  transition: background-color 6s ease, transform 6s ease;
+}
+
+/* Update globals.css */
+
+.tile h3 {
+  transition: text-shadow 0.3s ease; /* Smooth transition for text-shadow */
 }

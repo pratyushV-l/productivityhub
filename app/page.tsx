@@ -13,11 +13,88 @@ export default function Home() {
   const [activePopup, setActivePopup] = useState<string | null>(null);
   const [colorIndex, setColorIndex] = useState(0);
 
+  // Color cycling effect
   useEffect(() => {
     const interval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-    }, 2000); // Change color every second
+    }, 2000); // Change color every 2 seconds
     return () => clearInterval(interval);
+  }, []);
+
+  // Update blurred-circle colors based on colorIndex
+  useEffect(() => {
+    const circle = document.querySelector('.blurred-circle') as HTMLElement;
+    const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
+    const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
+
+    if(circle){
+      circle.style.backgroundColor = `${colors[colorIndex]}80`; // Adding opacity
+    }
+
+    if(circle2){
+      circle2.style.backgroundColor = `${colors[(colorIndex + 2) % colors.length]}80`; // Different color with opacity
+    }
+
+    if(circle3){
+      circle3.style.backgroundColor = `${colors[(colorIndex + 4) % colors.length]}80`; // Another distinct color with opacity
+    }
+  }, [colorIndex]);
+
+  // Move blurred-circle
+  useEffect(() => {
+    const circle = document.querySelector('.blurred-circle') as HTMLElement;
+
+    const moveCircle = () => {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 200);
+      circle.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    // Initial move
+    moveCircle();
+
+    // Move every 5 seconds
+    const interval = setInterval(moveCircle, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Move blurred-circle-2
+  useEffect(() => {
+    const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
+
+    const moveCircle2 = () => {
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 150);
+      circle2.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    // Initial move
+    moveCircle2();
+
+    // Move every 3 seconds
+    const interval2 = setInterval(moveCircle2, 3000);
+
+    return () => clearInterval(interval2);
+  }, []);
+
+  // Move blurred-circle-3
+  useEffect(() => {
+    const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
+
+    const moveCircle3 = () => {
+      const x = Math.random() * (window.innerWidth - 180);
+      const y = Math.random() * (window.innerHeight - 180);
+      circle3.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    // Initial move
+    moveCircle3();
+
+    // Move every 6 seconds
+    const interval3 = setInterval(moveCircle3, 6000);
+
+    return () => clearInterval(interval3);
   }, []);
 
   const openPopup = (popup: string) => {
@@ -35,29 +112,34 @@ export default function Home() {
 
   const handleTileMouseEnter = useCallback(debounce((e: React.MouseEvent<HTMLDivElement>) => {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    (e.target as HTMLDivElement).style.backgroundColor = randomColor;
-    
-    const h3Element = (e.target as HTMLDivElement).querySelector('h3') as HTMLHeadingElement;
+    const target = e.target as HTMLDivElement;
+    target.style.backgroundColor = randomColor;
+    target.style.boxShadow = `0 0 10px ${randomColor}`; // Add glow with current color
+
+    const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
       h3Element.style.color = "#262626";
     }
-  
+
     document.querySelectorAll('.tile').forEach((tile) => {
-      if (tile !== e.target) {
+      if (tile !== target) {
         (tile as HTMLDivElement).style.backgroundColor = "#1E1E1E";
         const tileH3Element = tile.querySelector('h3') as HTMLHeadingElement;
         if (tileH3Element) {
           tileH3Element.style.backgroundColor = 'transparent';
           tileH3Element.style.color = 'var(--foreground)';
         }
+        ((tile as HTMLDivElement)).style.boxShadow = 'none'; // Remove glow from other tiles
       }
     });
   }, 10), []);
 
   const handleTileMouseLeave = useCallback(debounce((e: React.MouseEvent<HTMLDivElement>) => {
-    (e.target as HTMLDivElement).style.backgroundColor = "#1E1E1E";
-    
-    const h3Element = (e.target as HTMLDivElement).querySelector('h3') as HTMLHeadingElement;
+    const target = e.target as HTMLDivElement;
+    target.style.backgroundColor = "#1E1E1E";
+    target.style.boxShadow = 'none'; // Remove glow
+
+    const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
       h3Element.style.color = 'var(--foreground)';
     }
@@ -72,7 +154,17 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1 className="title" style={{ color: colors[colorIndex] }} onMouseEnter={handleTitleMouseEnter}>
+      <div className="blurred-circle"></div>
+      <div className="blurred-circle-2"></div>
+      <div className="blurred-circle-3"></div>
+      <h1
+        className="title"
+        style={{
+          color: colors[colorIndex],
+          textShadow: `0 0 40px ${colors[colorIndex]}80`, // Subtle glow with opacity
+        }}
+        onMouseEnter={handleTitleMouseEnter}
+      >
         onlyProductivity
       </h1>
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
