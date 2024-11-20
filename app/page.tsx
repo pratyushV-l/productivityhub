@@ -150,7 +150,9 @@ export default function Home() {
         className="title"
         style={{
           color: colors[colorIndex],
-          textShadow: `0 0 40px ${colors[colorIndex]}80`, 
+          textShadow: `0 0 40px ${colors[colorIndex]}80`,
+          userSelect: 'none', // Prevent text selection
+          pointerEvents: 'none', // Make non-interactable
         }}
         onMouseEnter={handleTitleMouseEnter}
       >
