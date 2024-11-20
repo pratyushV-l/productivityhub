@@ -42,8 +42,8 @@ export default function Home() {
     const circle = document.querySelector('.blurred-circle') as HTMLElement;
 
     const moveCircle = () => {
-      const x = Math.random() * (window.innerWidth);
-      const y = Math.random() * (window.innerHeight);
+      const x = 0
+      const y = 0
       circle.style.transform = `translate(${x}px, ${y}px)`;
     };
 
