@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import debounce from 'lodash.debounce';
-//import TodoList from "./components/TodoList";
 import Timer from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
 import Quote from "./components/Quote";
+import ActivityLog from "./components/ActivityLog";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -160,7 +160,7 @@ export default function Home() {
         <div className="tile large" onClick={() => openPopup("quote")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3>Motivational Quote</h3>
         </div>
-        <div className="tile wide" onClick={() => openPopup("timer")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile wide" onClick={() => openPopup("ActivityLogs")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3>Action Logs</h3>
         </div>
         <div className="tile thin" onClick={() => openPopup("note")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
@@ -197,6 +197,7 @@ export default function Home() {
               {activePopup === "quote" && <Quote />}
               {activePopup === "timer" && <Timer />}
               {activePopup === "note" && <NoteTaker />}
+              {activePopup === "ActivityLogs" && <ActivityLog buttonColor={colors[colorIndex]} />}
               {activePopup === "extra1" && <div>Extra Feature 1 Content</div>}
               {activePopup === "extra2" && <div>Extra Feature 2 Content</div>}
               {activePopup === "extra3" && <div>Extra Feature 3 Content</div>}
