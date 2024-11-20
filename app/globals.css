@@ -270,8 +270,8 @@ body {
 
 .blurred-circle {
   position: fixed;
-  width: 750px;
-  height: 750px;
+  width: 1050px;
+  height: 1050px;
   background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(100px);
@@ -282,8 +282,8 @@ body {
 
 .blurred-circle-2 {
   position: fixed;
-  width: 550px;
-  height: 550px;
+  width: 1050px;
+  height: 1050px;
   background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(80px);
@@ -294,8 +294,8 @@ body {
 
 .blurred-circle-3 {
   position: fixed;
-  width: 480px;
-  height: 480px;
+  width: 1080px;
+  height: 1080px;
   background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(90px);

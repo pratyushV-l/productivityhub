@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
   const [logs, setLogs] = useState<{ log: string; timestamp: string }[]>([]);
   const [newLog, setNewLog] = useState<string>("");
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editIndex, setEditIndex] = useState<number | null>(null);
 
   const addLog = () => {
     if (newLog.trim()) {
@@ -12,10 +14,32 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
     }
   };
 
+  const editLog = () => {
+    if (newLog.trim() && editIndex !== null) {
+      const updatedLogs = logs.map((log, index) =>
+        index === editIndex ? { ...log, log: newLog } : log
+      );
+      setLogs(updatedLogs);
+      setNewLog("");
+      setIsEditing(false);
+      setEditIndex(null);
+    }
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      addLog();
+      isEditing ? editLog() : addLog();
     }
+  };
+
+  const deleteLog = (index: number) => {
+    setLogs(logs.filter((_, i) => i !== index));
+  };
+
+  const startEditing = (index: number) => {
+    setNewLog(logs[index].log);
+    setIsEditing(true);
+    setEditIndex(index);
   };
 
   return (
@@ -38,7 +62,7 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
         }}
       />
       <button
-        onClick={addLog}
+        onClick={isEditing ? editLog : addLog}
         style={{
           padding: "10px 20px",
           fontSize: "16px",
@@ -52,12 +76,38 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
           transition: "background-color 1s, color 1s",
         }}
       >
-        Add Log
+        {isEditing ? "Edit Log" : "Add Log"}
       </button>
       <ul>
         {logs.map((log, index) => (
-          <li key={index} style={{ marginBottom: "10px", fontSize: "18px" }}>
-            {log.log} <span style={{ fontSize: "12px", color: "#888" }}>({log.timestamp})</span>
+          <li key={index} style={{ marginBottom: "10px", fontSize: "18px", display: "flex", alignItems: "center" }}>
+            {log.log} <span style={{ fontSize: "12px", color: "#888", marginLeft: "10px" }}>({log.timestamp})</span>
+            <button
+              onClick={() => startEditing(index)}
+              style={{
+                marginLeft: "10px",
+                background: "none",
+                border: "none",
+                color: "#FFD392",
+                cursor: "pointer",
+                fontSize: "16px",
+              }}
+            >
+              ✎
+            </button>
+            <button
+              onClick={() => deleteLog(index)}
+              style={{
+                marginLeft: "10px",
+                background: "none",
+                border: "none",
+                color: "#FF929F",
+                cursor: "pointer",
+                fontSize: "16px",
+              }}
+            >
+              ✖
+            </button>
           </li>
         ))}
       </ul>
