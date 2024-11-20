@@ -13,15 +13,13 @@ export default function Home() {
   const [activePopup, setActivePopup] = useState<string | null>(null);
   const [colorIndex, setColorIndex] = useState(0);
 
-  // Color cycling effect
   useEffect(() => {
     const interval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
-    }, 2000); // Change color every 2 seconds
+    }, 2000); 
     return () => clearInterval(interval);
   }, []);
 
-  // Update blurred-circle colors based on colorIndex
   useEffect(() => {
     const circle = document.querySelector('.blurred-circle') as HTMLElement;
     const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
@@ -40,7 +38,6 @@ export default function Home() {
     }
   }, [colorIndex]);
 
-  // Move blurred-circle
   useEffect(() => {
     const circle = document.querySelector('.blurred-circle') as HTMLElement;
 
@@ -50,16 +47,13 @@ export default function Home() {
       circle.style.transform = `translate(${x}px, ${y}px)`;
     };
 
-    // Initial move
     moveCircle();
 
-    // Move every 5 seconds
     const interval = setInterval(moveCircle, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Move blurred-circle-2
   useEffect(() => {
     const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
 
@@ -69,16 +63,13 @@ export default function Home() {
       circle2.style.transform = `translate(${x}px, ${y}px)`;
     };
 
-    // Initial move
     moveCircle2();
 
-    // Move every 3 seconds
     const interval2 = setInterval(moveCircle2, 1500);
 
     return () => clearInterval(interval2);
   }, []);
 
-  // Move blurred-circle-3
   useEffect(() => {
     const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
 
@@ -88,10 +79,8 @@ export default function Home() {
       circle3.style.transform = `translate(${x}px, ${y}px)`;
     };
 
-    // Initial move
     moveCircle3();
 
-    // Move every 6 seconds
     const interval3 = setInterval(moveCircle3, 500);
 
     return () => clearInterval(interval3);
@@ -114,7 +103,7 @@ export default function Home() {
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     const target = e.target as HTMLDivElement;
     target.style.backgroundColor = randomColor;
-    target.style.boxShadow = `0 0 10px ${randomColor}`; // Add glow with current color
+    target.style.boxShadow = `0 0 10px ${randomColor}`; 
 
     const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
@@ -129,7 +118,7 @@ export default function Home() {
           tileH3Element.style.backgroundColor = 'transparent';
           tileH3Element.style.color = 'var(--foreground)';
         }
-        ((tile as HTMLDivElement)).style.boxShadow = 'none'; // Remove glow from other tiles
+        ((tile as HTMLDivElement)).style.boxShadow = 'none'; 
       }
     });
   }, 10), []);
@@ -137,7 +126,7 @@ export default function Home() {
   const handleTileMouseLeave = useCallback(debounce((e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     target.style.backgroundColor = "#1E1E1E";
-    target.style.boxShadow = 'none'; // Remove glow
+    target.style.boxShadow = 'none'; 
 
     const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
@@ -161,7 +150,7 @@ export default function Home() {
         className="title"
         style={{
           color: colors[colorIndex],
-          textShadow: `0 0 40px ${colors[colorIndex]}80`, // Subtle glow with opacity
+          textShadow: `0 0 40px ${colors[colorIndex]}80`, 
         }}
         onMouseEnter={handleTitleMouseEnter}
       >

@@ -16,7 +16,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
 }
 
 body {
@@ -36,8 +36,8 @@ h1.title {
   text-align: center;
   margin-bottom: 20px;
   font-size: clamp(3rem, 5vw, 5rem);
-  font-weight: bold; /* Bolder font weight */
-  transition: color 1s, text-shadow 1s; /* Smooth transition for color and glow */
+  font-weight: bold;
+  transition: color 1s, text-shadow 1s; 
   position: absolute;
   top: 5%;
   left: 50%;
@@ -52,7 +52,6 @@ h1.title {
 
 
 .tile {
-  /* Existing styles */
   background-color: var(--primary);
   color: var(--foreground);
   padding: 40px;
@@ -67,7 +66,7 @@ h1.title {
 }
 
 .tile:hover {
-  transform: scale(1.02); /* Increase size on hover */
+  transform: scale(1.02); 
 }
 
 .grid {
@@ -76,16 +75,16 @@ h1.title {
   grid-template-rows: repeat(6, auto);
   gap: 1vw;
   padding: 1vw;
-  width: 100%; /* Set width to 100% */
-  height: 100%; /* Ensure the grid occupies the full height */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  width: 100%; 
+  height: 100%; 
+  box-sizing: border-box;
 }
 
 html, body, .container {
-  width: 100%; /* Ensure parent elements also have a width of 100% */
-  height: 100%; /* Ensure parent elements also have a height of 100% */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  width: 100%; 
+  height: 100%; 
+  margin: 0; 
+  padding: 0;
 }
 
 .tile.large {
@@ -171,7 +170,6 @@ html, body, .container {
   color: var(--foreground);
 }
 
-/* Media queries for different resolutions */
 @media (max-width: 1600px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -190,50 +188,42 @@ html, body, .container {
   }
 }
 
-/* Add to globals.css */
-
 .blurred-circle {
   position: fixed;
   width: 500px;
   height: 500px;
-  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(100px);
-  z-index: -1; /* Ensure it's below other elements except the background */
-  pointer-events: none; /* Allow interactions through the circle */
+  z-index: -1; 
+  pointer-events: none; 
   transition: background-color 5s ease, transform 5s ease;
 }
-
-/* Add to globals.css */
 
 .blurred-circle-2 {
   position: fixed;
   width: 550px;
   height: 550px;
-  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(80px);
-  z-index: -1; /* Ensure it's below other elements except the background */
-  pointer-events: none; /* Allow interactions through the circle */
+  z-index: -1; 
+  pointer-events: none; 
   transition: background-color 7s ease, transform 7s ease;
 }
-
-/* Add to globals.css */
 
 .blurred-circle-3 {
   position: fixed;
   width: 480px;
   height: 480px;
-  background: rgba(255, 255, 255, 0.0); /* Initially transparent */
+  background: rgba(255, 255, 255, 0.0); 
   border-radius: 50%;
   filter: blur(90px);
-  z-index: -1; /* Ensure it's below other elements except the background */
-  pointer-events: none; /* Allow interactions through the circle */
+  z-index: -1; 
+  pointer-events: none; 
   transition: background-color 6s ease, transform 6s ease;
 }
 
-/* Update globals.css */
-
 .tile h3 {
-  transition: text-shadow 0.3s ease; /* Smooth transition for text-shadow */
+  transition: text-shadow 0.3s ease;
 }
