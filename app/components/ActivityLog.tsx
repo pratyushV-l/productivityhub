@@ -12,6 +12,12 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
     }
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      addLog();
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Activity Log</h2>
@@ -19,6 +25,7 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
         type="text"
         value={newLog}
         onChange={(e) => setNewLog(e.target.value)}
+        onKeyDown={handleKeyDown}
         placeholder="Enter new activity"
         style={{
           width: "100%",
