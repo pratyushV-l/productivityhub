@@ -28,7 +28,11 @@ const ActivityLog = ({ buttonColor }: { buttonColor: string }) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      isEditing ? editLog() : addLog();
+      if (isEditing) {
+        editLog();
+      } else {
+        addLog();
+      }
     }
   };
 
