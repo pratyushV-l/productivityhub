@@ -42,8 +42,8 @@ export default function Home() {
     const circle = document.querySelector('.blurred-circle') as HTMLElement;
 
     const moveCircle = () => {
-      const x = Math.random() * (window.innerWidth - 200);
-      const y = Math.random() * (window.innerHeight - 200);
+      const x = Math.random() * (window.innerWidth);
+      const y = Math.random() * (window.innerHeight);
       circle.style.transform = `translate(${x}px, ${y}px)`;
     };
 
@@ -58,8 +58,8 @@ export default function Home() {
     const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
 
     const moveCircle2 = () => {
-      const x = Math.random() * (window.innerWidth - 150);
-      const y = Math.random() * (window.innerHeight - 150);
+      const x = Math.random() * (window.innerWidth);
+      const y = Math.random() * (window.innerHeight);
       circle2.style.transform = `translate(${x}px, ${y}px)`;
     };
 
@@ -74,8 +74,8 @@ export default function Home() {
     const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
 
     const moveCircle3 = () => {
-      const x = Math.random() * (window.innerWidth - 180);
-      const y = Math.random() * (window.innerHeight - 180);
+      const x = Math.random() * (window.innerWidth);
+      const y = Math.random() * (window.innerHeight);
       circle3.style.transform = `translate(${x}px, ${y}px)`;
     };
 
