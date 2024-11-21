@@ -33,7 +33,7 @@ export default function Home() {
     const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
 
     if(circle){
-      circle.style.backgroundColor = `${colors[colorIndex]}40`;2 // Adding opacity
+      circle.style.backgroundColor = `${colors[colorIndex]}40`; // Adding opacity
     }
 
     if(circle2){
