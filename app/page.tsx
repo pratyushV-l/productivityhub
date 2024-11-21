@@ -129,6 +129,7 @@ export default function Home() {
         if (tileH3Element) {
           tileH3Element.style.backgroundColor = 'transparent';
           tileH3Element.style.color = 'var(--foreground)';
+          tileH3Element.style.boxShadow = 'none';
           const svgElement = tileH3Element.querySelector('svg') as SVGElement;
           if (svgElement) {
             svgElement.style.backgroundColor = 'transparent';
@@ -148,6 +149,7 @@ export default function Home() {
     if (h3Element) {
       h3Element.style.color = 'var(--foreground)';
       h3Element.style.backgroundColor = "transparent";
+      h3Element.style.boxShadow = 'none';
       const svgElement = h3Element.querySelector('svg') as SVGElement;
       if (svgElement) {
         svgElement.style.backgroundColor = 'transparent';
@@ -218,12 +220,12 @@ export default function Home() {
           </h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra1")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="font-loading">
-            <h3>To-Do List</h3>
-            <span className="material-symbols-outlined" style={{marginTop: '8px', fontSize: '48px'}}>
-              fact_check
-            </span>
-          </div>
+            <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+              To-Do List
+              <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+                fact_check
+              </span>
+            </h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("extra2")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">

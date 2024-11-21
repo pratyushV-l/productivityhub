@@ -264,7 +264,8 @@ body {
 .tile h3 {
   transition: text-shadow 0.3s ease;
   background-color: transparent !important;
-
+  border-color: transparent !important;
+  box-shadow: transparent !important;
 }
 
 .material-symbols-outlined {
@@ -275,8 +276,12 @@ body {
     'opsz' 24;
   font-family: 'Material Symbols Outlined';
   font-size: 48px;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: transparent !important;
 }
 
 svg {
   background-color: transparent !important;
+  box-shadow: transparent !important;
 }
