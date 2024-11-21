@@ -21,12 +21,19 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const link = document.createElement('link');
+    link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }, []);
+
+  useEffect(() => {
     const circle = document.querySelector('.blurred-circle') as HTMLElement;
     const circle2 = document.querySelector('.blurred-circle-2') as HTMLElement;
     const circle3 = document.querySelector('.blurred-circle-3') as HTMLElement;
 
     if(circle){
-      circle.style.backgroundColor = `${colors[colorIndex]}40`; // Adding opacity
+      circle.style.backgroundColor = `${colors[colorIndex]}40`;2 // Adding opacity
     }
 
     if(circle2){
@@ -108,6 +115,11 @@ export default function Home() {
     const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
       h3Element.style.color = "#262626";
+      h3Element.style.backgroundColor = "transparent";
+      const svgElement = h3Element.querySelector('svg') as SVGElement;
+      if (svgElement) {
+        svgElement.style.backgroundColor = 'transparent';
+      }
     }
 
     document.querySelectorAll('.tile').forEach((tile) => {
@@ -117,6 +129,10 @@ export default function Home() {
         if (tileH3Element) {
           tileH3Element.style.backgroundColor = 'transparent';
           tileH3Element.style.color = 'var(--foreground)';
+          const svgElement = tileH3Element.querySelector('svg') as SVGElement;
+          if (svgElement) {
+            svgElement.style.backgroundColor = 'transparent';
+          }
         }
         ((tile as HTMLDivElement)).style.boxShadow = 'none'; 
       }
@@ -131,6 +147,11 @@ export default function Home() {
     const h3Element = target.querySelector('h3') as HTMLHeadingElement;
     if (h3Element) {
       h3Element.style.color = 'var(--foreground)';
+      h3Element.style.backgroundColor = "transparent";
+      const svgElement = h3Element.querySelector('svg') as SVGElement;
+      if (svgElement) {
+        svgElement.style.backgroundColor = 'transparent';
+      }
     }
   }, 10), []);
 
@@ -140,6 +161,19 @@ export default function Home() {
       (element as HTMLElement).style.backgroundColor = 'transparent';
     });
   }, 10), []);
+
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    link.onload = () => {
+      document.querySelectorAll('.font-loading').forEach((element) => {
+        element.classList.remove('font-loading');
+      });
+    };
+  }, []);
 
   return (
     <div className="container">
@@ -160,37 +194,92 @@ export default function Home() {
       </h1>
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
         <div className="tile large" onClick={() => openPopup("quote")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Motivational Quote</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            <span className="material-symbols-outlined" style={{ marginRight: '8px', fontSize: '48px'}}>
+              bolt
+            </span>
+            Motivational Quote
+          </h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("ActivityLogs")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Action Logs</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Action Logs
+            <span className="material-symbols-outlined" style={{ marginLeft: '8px', fontSize: '48px' }}>
+              list
+            </span>
+          </h3>
         </div>
         <div className="tile thin" onClick={() => openPopup("note")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Timer</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Timer
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              timer
+            </span>
+          </h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra1")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>To-Do List</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className="font-loading">
+            <h3>To-Do List</h3>
+            <span className="material-symbols-outlined" style={{marginTop: '8px', fontSize: '48px'}}>
+              fact_check
+            </span>
+          </div>
         </div>
         <div className="tile wide" onClick={() => openPopup("extra2")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Calender</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px'}}>
+              calendar_month
+            </span>
+            Calender
+          </h3>
         </div>
         <div className="tile ewide" onClick={() => openPopup("extra3")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Habit Tracker</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Habit Tracker
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              routine
+            </span>
+          </h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra4")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>AI Assistant</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px'}}>
+                network_intelligence
+            </span>
+            AI Assistant
+          </h3>
         </div>
         <div className="tile large" onClick={() => openPopup("extra5")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Note Taker</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Note Taker
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              description
+            </span>
+          </h3>
         </div>
         <div className="tile" onClick={() => openPopup("extra6")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Meditation</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Meditation
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              self_improvement
+            </span>
+          </h3>
         </div>
         <div className="tile" onClick={() => openPopup("extra7")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Music</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Music
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              music_note
+            </span>
+          </h3>
         </div>
         <div className="tile ewide" onClick={() => openPopup("extra8")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
-          <h3>Sticky Notes</h3>
+          <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
+            Sticky Notes
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              sticky_note_2
+            </span>
+          </h3>
         </div>
         {activePopup && (
           <div className="popup">

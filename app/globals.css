@@ -69,11 +69,11 @@ h1.title {
 .tile {
   background-color: var(--primary);
   color: var(--foreground);
-  padding: 40px;
+  padding: 4px;
   border-radius: 12px;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.25s ease, color 1.5s ease, transform 0.25s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+  transition: background-color 0.55s ease, color 0.55s ease, transform 0.55s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
   box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -186,6 +186,10 @@ body {
   }
 }
 
+.font-loading {
+  visibility: hidden;
+}
+
 .close-button {
   position: absolute;
   top: 10px;
@@ -259,4 +263,20 @@ body {
 
 .tile h3 {
   transition: text-shadow 0.3s ease;
+  background-color: transparent !important;
+
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-family: 'Material Symbols Outlined';
+  font-size: 48px;
+}
+
+svg {
+  background-color: transparent !important;
 }
