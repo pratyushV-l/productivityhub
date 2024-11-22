@@ -6,7 +6,9 @@ import TimerApp from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
 import Quote from "./components/Quote";
 import TodoList from "./components/TodoList";
+import HabitTracker from "./components/HabitTracker";
 import ActivityLog from "./components/ActivityLog";
+import Meditation from "./components/Meditation";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -236,7 +238,7 @@ export default function Home() {
             Calender
           </h3>
         </div>
-        <div className="tile ewide" onClick={() => openPopup("extra3")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile ewide" onClick={() => openPopup("habit")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Habit Tracker
             <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
@@ -260,7 +262,7 @@ export default function Home() {
             </span>
           </h3>
         </div>
-        <div className="tile" onClick={() => openPopup("extra6")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile" onClick={() => openPopup("meditation")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Meditation
             <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
@@ -293,8 +295,8 @@ export default function Home() {
               {activePopup === "note" && <NoteTaker />}
               {activePopup === "ActivityLogs" && <ActivityLog buttonColor={colors[colorIndex]} />}
               {activePopup === "todo" && <TodoList buttonColor={colors[colorIndex]} />}
-              {activePopup === "extra2" && <div>Extra Feature 2 Content</div>}
-              {activePopup === "extra3" && <div>Extra Feature 3 Content</div>}
+              {activePopup === "habit" && <HabitTracker buttonColor={colors[colorIndex]} />}
+              {activePopup === "meditation" && <Meditation buttonColor={colors[colorIndex]} />}
               {activePopup === "extra4" && <div>Extra Feature 4 Content</div>}
               {activePopup === "extra5" && <div>Extra Feature 5 Content</div>}
               {activePopup === "extra6" && <div>Extra Feature 6 Content</div>}

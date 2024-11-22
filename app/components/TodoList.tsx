@@ -183,7 +183,7 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
                                         fontSize: "16px",
                                     }}
                                 >
-                                    ✖
+                                    ✔
                                 </button>
                             </div>
                         </div>
