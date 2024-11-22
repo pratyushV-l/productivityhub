@@ -11,6 +11,7 @@ import ActivityLog from "./components/ActivityLog";
 import Meditation from "./components/Meditation";
 import Calendar from "./components/Calender";
 import Calculator from "./components/Calculator";
+import StickyNotes from "./components/StickyNotes";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -280,7 +281,7 @@ export default function Home() {
             </span>
           </h3>
         </div>
-        <div className="tile ewide" onClick={() => openPopup("extra8")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile ewide" onClick={() => openPopup("sticky")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Sticky Notes
             <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
@@ -301,7 +302,7 @@ export default function Home() {
               {activePopup === "meditation" && <Meditation buttonColor={colors[colorIndex]} />}
               {activePopup === "calender" && <Calendar />}
               {activePopup === "calculator" && <Calculator onClose={closePopup} />}
-              {activePopup === "extra6" && <div>Extra Feature 6 Content</div>}
+              {activePopup === "sticky" && <StickyNotes onClose={() => setActivePopup(null)} />}
               {activePopup === "extra7" && <div>Extra Feature 7 Content</div>}
               {activePopup === "extra8" && <div>Extra Feature 8 Content</div>}
             </div>
