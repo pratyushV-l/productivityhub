@@ -42,6 +42,19 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
         }
     };
 
+    const getBackgroundColor = (importance: 'High' | 'Medium' | 'Low') => {
+        switch (importance) {
+            case 'High':
+                return '#FF929F';
+            case 'Medium':
+                return '#FFD392';
+            case 'Low':
+                return '#92FFB0';
+            default:
+                return '#1E1E1E';
+        }
+    };
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
             <style>
@@ -128,15 +141,15 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
             </button>
             <ul style={{ width: "100%", listStyleType: "none", padding: 0 }}>
                 {todos.map((todo, index) => (
-                    <li key={index} style={{ marginBottom: "10px", fontSize: "18px", display: "flex", flexDirection: "column", alignItems: "flex-start", backgroundColor: "#1E1E1E", padding: "10px", borderRadius: "5px" }}>
+                    <li key={index} style={{ marginBottom: "10px", fontSize: "18px", display: "flex", flexDirection: "column", alignItems: "flex-start", backgroundColor: getBackgroundColor(todo.importance), padding: "10px", borderRadius: "5px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-                            <span>{todo.text}</span>
+                            <span style={{color: "#262626"}}>{todo.text}</span>
                             <button
                                 onClick={() => deleteTodo(index)}
                                 style={{
                                     background: "none",
                                     border: "none",
-                                    color: "#FF929F",
+                                    color: "#262626",
                                     cursor: "pointer",
                                     fontSize: "16px",
                                 }}
@@ -145,10 +158,10 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
                             </button>
                         </div>
                         <div style={{ fontSize: "14px", color: "#888" }}>
-                            <span>Deadline: {todo.deadline}</span>
+                            <span style={{ color: "#262626" }}>Deadline: {todo.deadline}</span>
                         </div>
                         <div style={{ fontSize: "14px", color: "#888" }}>
-                            <span>Importance: {todo.importance}</span>
+                            <span style={{ color: "#262626" }}>Importance: {todo.importance}</span>
                         </div>
                     </li>
                 ))}
