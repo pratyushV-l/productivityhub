@@ -200,34 +200,49 @@ const Timer = () => {
 const Stopwatch = () => {
     const [time, setTime] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
+    const [lastTimestamp, setLastTimestamp] = useState<number | null>(null);
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null;
         if (isRunning) {
             interval = setInterval(() => {
-                setTime((prevTime) => prevTime + 1);
-            }, 1000);
-        } else if (!isRunning && time !== 0) {
-            clearInterval(interval!);
+                setTime((prevTime) => {
+                    const now = performance.now();
+                    const elapsed = lastTimestamp ? now - lastTimestamp : 0;
+                    setLastTimestamp(now);
+                    return prevTime + elapsed;
+                });
+            }, 10);
+        } else {
+            setLastTimestamp(null);
         }
-        return () => clearInterval(interval!);
-    }, [isRunning, time]);
+        return () => {
+            if (interval) {
+                clearInterval(interval);
+            }
+        };
+    }, [isRunning, lastTimestamp]);
 
     const handleStartPause = () => {
+        if (!isRunning) {
+            setLastTimestamp(performance.now());
+        }
         setIsRunning(!isRunning);
     };
 
     const handleReset = () => {
-        setIsRunning(!isRunning);
+        setIsRunning(false);
         setTime(0);
+        setLastTimestamp(null);
     };
 
     const formatTime = (time: number) => {
-        const getSeconds = `0${time % 60}`.slice(-2);
-        const minutes = Math.floor(time / 60);
+        const getMilliseconds = `0${Math.floor((time % 1000) / 10)}`.slice(-2);
+        const getSeconds = `0${Math.floor((time / 1000) % 60)}`.slice(-2);
+        const minutes = Math.floor(time / 60000);
         const getMinutes = `0${minutes % 60}`.slice(-2);
-        const getHours = `0${Math.floor(time / 3600)}`.slice(-2);
-        return `${getHours}:${getMinutes}:${getSeconds}`;
+        const getHours = `0${Math.floor(time / 3600000)}`.slice(-2);
+        return `${getHours}:${getMinutes}:${getSeconds}:${getMilliseconds}`;
     };
 
     return (
