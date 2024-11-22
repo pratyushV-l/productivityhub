@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Calculator: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+const Calculator: React.FC<{ onClose: () => void }> = ({}) => {
   const [input, setInput] = useState<string>("");
 
   const handleButtonClick = (value: string) => {
