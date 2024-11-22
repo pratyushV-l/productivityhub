@@ -100,8 +100,8 @@ const Timer = () => {
                     style={{
                         padding: "10px",
                         fontSize: "16px",
-                        color: "#262626",
-                        backgroundColor: "#ffffff",
+                        color: "#ffffff",
+                        backgroundColor: "#262626",
                         border: "1px solid #ccc",
                         borderRadius: "5px",
                         textAlign: "center",
@@ -112,7 +112,7 @@ const Timer = () => {
                     }}
                 >
                     {Array.from({ length: 24 }, (_, i) => (
-                        <option key={i} value={i}>{i}</option>
+                        <option key={i} value={i} style={{ backgroundColor: "#262626", color: "#ffffff" }}>{i}</option>
                     ))}
                 </select>
                 <select
@@ -122,8 +122,8 @@ const Timer = () => {
                     style={{
                         padding: "10px",
                         fontSize: "16px",
-                        color: "#262626",
-                        backgroundColor: "#ffffff",
+                        color: "#ffffff",
+                        backgroundColor: "#262626",
                         border: "1px solid #ccc",
                         borderRadius: "5px",
                         textAlign: "center",
@@ -134,7 +134,7 @@ const Timer = () => {
                     }}
                 >
                     {Array.from({ length: 60 }, (_, i) => (
-                        <option key={i} value={i}>{i}</option>
+                        <option key={i} value={i} style={{ backgroundColor: "#262626", color: "#ffffff" }}>{i}</option>
                     ))}
                 </select>
                 <select
@@ -144,8 +144,8 @@ const Timer = () => {
                     style={{
                         padding: "10px",
                         fontSize: "16px",
-                        color: "#262626",
-                        backgroundColor: "#ffffff",
+                        color: "#ffffff",
+                        backgroundColor: "#262626",
                         border: "1px solid #ccc",
                         borderRadius: "5px",
                         textAlign: "center",
@@ -156,7 +156,7 @@ const Timer = () => {
                     }}
                 >
                     {Array.from({ length: 60 }, (_, i) => (
-                        <option key={i} value={i}>{i}</option>
+                        <option key={i} value={i} style={{ backgroundColor: "#262626", color: "#ffffff" }}>{i}</option>
                     ))}
                 </select>
             </div>
