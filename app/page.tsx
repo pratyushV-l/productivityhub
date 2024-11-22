@@ -5,6 +5,7 @@ import debounce from 'lodash.debounce';
 import TimerApp from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
 import Quote from "./components/Quote";
+import TodoList from "./components/TodoList";
 import ActivityLog from "./components/ActivityLog";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
@@ -219,7 +220,7 @@ export default function Home() {
             </span>
           </h3>
         </div>
-        <div className="tile tall" onClick={() => openPopup("extra1")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile tall" onClick={() => openPopup("todo")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
             <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
               To-Do List
               <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
@@ -291,7 +292,7 @@ export default function Home() {
               {activePopup === "timer" && <TimerApp />}
               {activePopup === "note" && <NoteTaker />}
               {activePopup === "ActivityLogs" && <ActivityLog buttonColor={colors[colorIndex]} />}
-              {activePopup === "extra1" && <div>Extra Feature 1 Content</div>}
+              {activePopup === "todo" && <TodoList />}
               {activePopup === "extra2" && <div>Extra Feature 2 Content</div>}
               {activePopup === "extra3" && <div>Extra Feature 3 Content</div>}
               {activePopup === "extra4" && <div>Extra Feature 4 Content</div>}

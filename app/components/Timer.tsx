@@ -385,7 +385,7 @@ const TimerApp = () => {
     const [activeTab, setActiveTab] = useState('timer');
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '10px' }}>
             <div style={{ marginBottom: '20px' }}>
                 <button
                     onClick={() => setActiveTab('timer')}
