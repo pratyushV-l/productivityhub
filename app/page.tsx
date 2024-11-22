@@ -10,6 +10,7 @@ import HabitTracker from "./components/HabitTracker";
 import ActivityLog from "./components/ActivityLog";
 import Meditation from "./components/Meditation";
 import Calendar from "./components/Calender";
+import Calculator from "./components/Calculator";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -271,11 +272,11 @@ export default function Home() {
             </span>
           </h3>
         </div>
-        <div className="tile" onClick={() => openPopup("extra7")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile" onClick={() => openPopup("calculator")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
-            Music
+            Calculator
             <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
-              music_note
+              calculate
             </span>
           </h3>
         </div>
@@ -299,7 +300,7 @@ export default function Home() {
               {activePopup === "habit" && <HabitTracker buttonColor={colors[colorIndex]} />}
               {activePopup === "meditation" && <Meditation buttonColor={colors[colorIndex]} />}
               {activePopup === "calender" && <Calendar />}
-              {activePopup === "extra5" && <div>Extra Feature 5 Content</div>}
+              {activePopup === "calculator" && <Calculator onClose={closePopup} />}
               {activePopup === "extra6" && <div>Extra Feature 6 Content</div>}
               {activePopup === "extra7" && <div>Extra Feature 7 Content</div>}
               {activePopup === "extra8" && <div>Extra Feature 8 Content</div>}
