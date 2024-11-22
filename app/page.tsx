@@ -9,6 +9,7 @@ import TodoList from "./components/TodoList";
 import HabitTracker from "./components/HabitTracker";
 import ActivityLog from "./components/ActivityLog";
 import Meditation from "./components/Meditation";
+import Calendar from "./components/Calender";
 
 const colors = ["#FF929F", "#FFAC92", "#FFD392", "#92FFB0", "#92F2FF", "#92CAFF", "#A192FF", "#DC92FF"];
 
@@ -230,7 +231,7 @@ export default function Home() {
               </span>
             </h3>
         </div>
-        <div className="tile wide" onClick={() => openPopup("extra2")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile wide" onClick={() => openPopup("calender")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px', boxShadow: 'none'}}>
               calendar_month
@@ -254,7 +255,7 @@ export default function Home() {
             AI Assistant
           </h3>
         </div>
-        <div className="tile large" onClick={() => openPopup("extra5")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile large" onClick={() => openPopup("note")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Note Taker
             <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
@@ -297,7 +298,7 @@ export default function Home() {
               {activePopup === "todo" && <TodoList buttonColor={colors[colorIndex]} />}
               {activePopup === "habit" && <HabitTracker buttonColor={colors[colorIndex]} />}
               {activePopup === "meditation" && <Meditation buttonColor={colors[colorIndex]} />}
-              {activePopup === "extra4" && <div>Extra Feature 4 Content</div>}
+              {activePopup === "calender" && <Calendar />}
               {activePopup === "extra5" && <div>Extra Feature 5 Content</div>}
               {activePopup === "extra6" && <div>Extra Feature 6 Content</div>}
               {activePopup === "extra7" && <div>Extra Feature 7 Content</div>}

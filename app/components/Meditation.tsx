@@ -57,7 +57,7 @@ const Meditation: React.FC<MeditationProps> = ({ buttonColor }) => {
               value={totalTime}
               onChange={(e) => setTotalTime(Number(e.target.value))}
               min={1}
-              style={{ padding: '5px', width: '60px', color: '#262626' }}
+              style={{ padding: '5px', width: '60px', color: '#262626', borderRadius: '4px' }}
             />
           </div>
           <div style={{ marginBottom: '20px' }}>
@@ -67,7 +67,7 @@ const Meditation: React.FC<MeditationProps> = ({ buttonColor }) => {
               value={breaths}
               onChange={(e) => setBreaths(Number(e.target.value))}
               min={1}
-              style={{ padding: '5px', width: '60px', color: '#262626' }}
+              style={{ padding: '5px', width: '60px', color: '#262626', borderRadius: '4px' }}
             />
           </div>
           <button
@@ -100,8 +100,8 @@ const Meditation: React.FC<MeditationProps> = ({ buttonColor }) => {
           <div
             className="breathing-circle"
             style={{
-              width: '100px',
-              height: '100px',
+              width: '250px',
+              height: '250px',
               backgroundColor: buttonColor,
               borderRadius: '50%',
               animation: `${isInhale ? 'inhale' : 'exhale'} ${animationTime}ms linear infinite`,
@@ -109,12 +109,12 @@ const Meditation: React.FC<MeditationProps> = ({ buttonColor }) => {
           ></div>
           <style>{`
             @keyframes inhale {
-              0% { transform: scale(0.5); opacity: 0; }
+              0% { transform: scale(0.1); opacity: 0; }
               100% { transform: scale(1); opacity: 1; }
             }
             @keyframes exhale {
               0% { transform: scale(1); opacity: 1; }
-              100% { transform: scale(0.5); opacity: 0; }
+              100% { transform: scale(0.1); opacity: 0; }
             }
           `}</style>
         </div>
