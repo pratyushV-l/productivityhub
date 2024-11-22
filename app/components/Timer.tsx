@@ -1,11 +1,13 @@
 'use client'
 
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const Timer = () => {
     const [time, setTime] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
-    const [inputTime, setInputTime] = useState("");
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
     const [totalTime, setTotalTime] = useState(0);
 
     useEffect(() => {
@@ -26,7 +28,6 @@ const Timer = () => {
 
     const handleStartPause = () => {
         if (!isRunning && time === 0) {
-            const [hours, minutes, seconds] = inputTime.split(":").map(Number);
             const totalTime = ((hours * 3600) + (minutes * 60) + seconds) * 1000;
             setTime(totalTime);
             setTotalTime(totalTime);
@@ -37,7 +38,9 @@ const Timer = () => {
     const handleReset = () => {
         setIsRunning(false);
         setTime(0);
-        setInputTime("");
+        setHours(0);
+        setMinutes(0);
+        setSeconds(0);
         setTotalTime(0);
     };
 
@@ -54,7 +57,7 @@ const Timer = () => {
     };
 
     const calculateProgress = () => {
-        return totalTime ? ((totalTime - time) / totalTime) * 100: 0;
+        return totalTime ? ((totalTime - time) / totalTime) * 100 : 0;
     };
 
     const radius = 100;
@@ -89,12 +92,11 @@ const Timer = () => {
                     {formatTime(time)}
                 </div>
             </div>
-            <div style={{ marginBottom: '20px' }}>
-                <input
-                    type="text"
-                    value={inputTime}
-                    onChange={(e) => setInputTime(e.target.value)}
-                    placeholder="HH:MM:SS"
+            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
+                <select
+                    value={hours}
+                    onChange={(e) => setHours(Number(e.target.value))}
+                    size={2}
                     style={{
                         padding: "10px",
                         fontSize: "16px",
@@ -103,10 +105,60 @@ const Timer = () => {
                         border: "1px solid #ccc",
                         borderRadius: "5px",
                         textAlign: "center",
-                        marginRight: "10px",
                         transition: "background-color 1s, color 1s",
+                        maxHeight: "150px",
+                        overflowY: "auto",
+                        display: "block",
                     }}
-                />
+                >
+                    {Array.from({ length: 24 }, (_, i) => (
+                        <option key={i} value={i}>{i}</option>
+                    ))}
+                </select>
+                <select
+                    value={minutes}
+                    onChange={(e) => setMinutes(Number(e.target.value))}
+                    size={2}
+                    style={{
+                        padding: "10px",
+                        fontSize: "16px",
+                        color: "#262626",
+                        backgroundColor: "#ffffff",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                        textAlign: "center",
+                        transition: "background-color 1s, color 1s",
+                        maxHeight: "150px",
+                        overflowY: "auto",
+                        display: "block"
+                    }}
+                >
+                    {Array.from({ length: 60 }, (_, i) => (
+                        <option key={i} value={i}>{i}</option>
+                    ))}
+                </select>
+                <select
+                    value={seconds}
+                    onChange={(e) => setSeconds(Number(e.target.value))}
+                    size={2}
+                    style={{
+                        padding: "10px",
+                        fontSize: "16px",
+                        color: "#262626",
+                        backgroundColor: "#ffffff",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                        textAlign: "center",
+                        transition: "background-color 1s, color 1s",
+                        maxHeight: "150px",
+                        overflowY: "auto",
+                        display: "block"
+                    }}
+                >
+                    {Array.from({ length: 60 }, (_, i) => (
+                        <option key={i} value={i}>{i}</option>
+                    ))}
+                </select>
             </div>
             <div>
                 <button
