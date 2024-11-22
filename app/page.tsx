@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import debounce from 'lodash.debounce';
-import Timer from "./components/Timer";
+import TimerApp from "./components/Timer";
 import NoteTaker from "./components/NoteTaker";
 import Quote from "./components/Quote";
 import ActivityLog from "./components/ActivityLog";
@@ -197,7 +197,7 @@ export default function Home() {
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
         <div className="tile large" onClick={() => openPopup("quote")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
-            <span className="material-symbols-outlined" style={{ marginRight: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{ marginRight: '8px', fontSize: '48px', boxShadow: 'none'}}>
               bolt
             </span>
             Motivational Quote
@@ -206,15 +206,15 @@ export default function Home() {
         <div className="tile wide" onClick={() => openPopup("ActivityLogs")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Action Logs
-            <span className="material-symbols-outlined" style={{ marginLeft: '8px', fontSize: '48px' }}>
+            <span className="material-symbols-outlined" style={{ marginLeft: '8px', fontSize: '48px', boxShadow: 'none' }}>
               list
             </span>
           </h3>
         </div>
-        <div className="tile thin" onClick={() => openPopup("note")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
+        <div className="tile thin" onClick={() => openPopup("timer")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Timer
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               timer
             </span>
           </h3>
@@ -222,14 +222,14 @@ export default function Home() {
         <div className="tile tall" onClick={() => openPopup("extra1")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
             <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
               To-Do List
-              <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+              <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
                 fact_check
               </span>
             </h3>
         </div>
         <div className="tile wide" onClick={() => openPopup("extra2")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
-            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px', boxShadow: 'none'}}>
               calendar_month
             </span>
             Calender
@@ -238,14 +238,14 @@ export default function Home() {
         <div className="tile ewide" onClick={() => openPopup("extra3")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Habit Tracker
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               routine
             </span>
           </h3>
         </div>
         <div className="tile tall" onClick={() => openPopup("extra4")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
-            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginRight: '8px', fontSize: '48px', boxShadow: 'none'}}>
                 network_intelligence
             </span>
             AI Assistant
@@ -254,7 +254,7 @@ export default function Home() {
         <div className="tile large" onClick={() => openPopup("extra5")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Note Taker
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               description
             </span>
           </h3>
@@ -262,7 +262,7 @@ export default function Home() {
         <div className="tile" onClick={() => openPopup("extra6")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Meditation
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               self_improvement
             </span>
           </h3>
@@ -270,7 +270,7 @@ export default function Home() {
         <div className="tile" onClick={() => openPopup("extra7")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Music
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               music_note
             </span>
           </h3>
@@ -278,7 +278,7 @@ export default function Home() {
         <div className="tile ewide" onClick={() => openPopup("extra8")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
           <h3 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="font-loading">
             Sticky Notes
-            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px'}}>
+            <span className="material-symbols-outlined" style={{marginLeft: '8px', fontSize: '48px', boxShadow: 'none'}}>
               sticky_note_2
             </span>
           </h3>
@@ -288,7 +288,7 @@ export default function Home() {
             <div className="popup-content">
               <button className="close-button" onClick={closePopup}></button>
               {activePopup === "quote" && <Quote />}
-              {activePopup === "timer" && <Timer />}
+              {activePopup === "timer" && <TimerApp />}
               {activePopup === "note" && <NoteTaker />}
               {activePopup === "ActivityLogs" && <ActivityLog buttonColor={colors[colorIndex]} />}
               {activePopup === "extra1" && <div>Extra Feature 1 Content</div>}
