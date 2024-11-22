@@ -198,7 +198,7 @@ export default function Home() {
         }}
         onMouseEnter={handleTitleMouseEnter}
       >
-        onlyProductivity
+        productivityHub
       </h1>
       <div className="grid grid-cols-7 sm:grid-cols-4 gap-5">
         <div className="tile large" onClick={() => openPopup("quote")} onMouseEnter={handleTileMouseEnter} onMouseLeave={handleTileMouseLeave}>
