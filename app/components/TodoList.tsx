@@ -11,11 +11,18 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
     const [newTodo, setNewTodo] = useState<string>("");
     const [deadline, setDeadline] = useState<string>("");
     const [importance, setImportance] = useState<'High' | 'Medium' | 'Low'>("Medium");
+    const [editIndex, setEditIndex] = useState<number | null>(null);
 
     const addTodo = () => {
         if (newTodo.trim()) {
             const todoDeadline = deadline.trim() ? deadline : "None";
-            const newTodos = [...todos, { text: newTodo, deadline: todoDeadline, importance }];
+            const newTodos = [...todos];
+            if (editIndex !== null) {
+                newTodos[editIndex] = { text: newTodo, deadline: todoDeadline, importance };
+                setEditIndex(null);
+            } else {
+                newTodos.push({ text: newTodo, deadline: todoDeadline, importance });
+            }
             newTodos.sort((a, b) => {
                 const importanceOrder = { "High": 1, "Medium": 2, "Low": 3 };
                 if (importanceOrder[a.importance] !== importanceOrder[b.importance]) {
@@ -30,6 +37,14 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
             setDeadline("");
             setImportance("Medium");
         }
+    };
+
+    const editTodo = (index: number) => {
+        const todo = todos[index];
+        setNewTodo(todo.text);
+        setDeadline(todo.deadline === "None" ? "" : todo.deadline);
+        setImportance(todo.importance);
+        setEditIndex(index);
     };
 
     const deleteTodo = (index: number) => {
@@ -137,25 +152,40 @@ const TodoList = ({ buttonColor }: { buttonColor: string }) => {
                     transition: "background-color 1s, color 1s",
                 }}
             >
-                Add Todo
+                {editIndex !== null ? "Edit Todo" : "Add Todo"}
             </button>
             <ul style={{ width: "100%", listStyleType: "none", padding: 0 }}>
                 {todos.map((todo, index) => (
                     <li key={index} style={{ marginBottom: "10px", fontSize: "18px", display: "flex", flexDirection: "column", alignItems: "flex-start", backgroundColor: getBackgroundColor(todo.importance), padding: "10px", borderRadius: "5px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
                             <span style={{color: "#262626"}}>{todo.text}</span>
-                            <button
-                                onClick={() => deleteTodo(index)}
-                                style={{
-                                    background: "none",
-                                    border: "none",
-                                    color: "#262626",
-                                    cursor: "pointer",
-                                    fontSize: "16px",
-                                }}
-                            >
-                                ✖
-                            </button>
+                            <div>
+                                <button
+                                    onClick={() => editTodo(index)}
+                                    style={{
+                                        background: "none",
+                                        border: "none",
+                                        color: "#262626",
+                                        cursor: "pointer",
+                                        fontSize: "16px",
+                                        marginRight: "10px",
+                                    }}
+                                >
+                                    ✎
+                                </button>
+                                <button
+                                    onClick={() => deleteTodo(index)}
+                                    style={{
+                                        background: "none",
+                                        border: "none",
+                                        color: "#262626",
+                                        cursor: "pointer",
+                                        fontSize: "16px",
+                                    }}
+                                >
+                                    ✖
+                                </button>
+                            </div>
                         </div>
                         <div style={{ fontSize: "14px", color: "#888" }}>
                             <span style={{ color: "#262626" }}>Deadline: {todo.deadline}</span>
