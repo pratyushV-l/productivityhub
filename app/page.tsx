@@ -292,7 +292,7 @@ export default function Home() {
               {activePopup === "timer" && <TimerApp />}
               {activePopup === "note" && <NoteTaker />}
               {activePopup === "ActivityLogs" && <ActivityLog buttonColor={colors[colorIndex]} />}
-              {activePopup === "todo" && <TodoList />}
+              {activePopup === "todo" && <TodoList buttonColor={colors[colorIndex]} />}
               {activePopup === "extra2" && <div>Extra Feature 2 Content</div>}
               {activePopup === "extra3" && <div>Extra Feature 3 Content</div>}
               {activePopup === "extra4" && <div>Extra Feature 4 Content</div>}

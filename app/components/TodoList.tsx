@@ -6,7 +6,7 @@ interface Todo {
     importance: 'High' | 'Medium' | 'Low';
 }
 
-const TodoList = () => {
+const TodoList = ({ buttonColor }: { buttonColor: string }) => {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [newTodo, setNewTodo] = useState<string>("");
     const [deadline, setDeadline] = useState<string>("");
@@ -116,7 +116,7 @@ const TodoList = () => {
                     padding: "10px 20px",
                     fontSize: "16px",
                     color: "#262626",
-                    backgroundColor: "#92FFB0",
+                    backgroundColor: buttonColor,
                     border: "none",
                     borderRadius: "5px",
                     cursor: "pointer",
