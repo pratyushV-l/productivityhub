@@ -309,6 +309,31 @@ export default function Home() {
           </div>
         )}
       </div>
+      <a
+        href="https://github.com/pratyushV-l/productivityhub"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          left: '20px', // Changed from right to left
+          width: '40px',
+          height: '40px',
+          zIndex: 1000,
+          borderRadius: '50%', // Make it circular
+          overflow: 'hidden', // Ensure the image fits inside the circle
+          backgroundColor: '#fff', // Optional: background color
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          alt="GitHub"
+          style={{ width: '80%', height: '80%' }}
+        />
+      </a>
     </div>
     
   );
