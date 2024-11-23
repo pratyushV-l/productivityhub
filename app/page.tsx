@@ -334,6 +334,31 @@ export default function Home() {
           style={{ width: '80%', height: '80%' }}
         />
       </a>
+      <a
+        href="https://www.youtube.com/watch?v=hCA32_i4T8A"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: 'fixed',
+          bottom: '70px', // Positioned above the GitHub icon
+          left: '20px',
+          width: '40px',
+          height: '40px',
+          zIndex: 1000,
+          borderRadius: '50%',
+          overflow: 'hidden',
+          backgroundColor: '#fff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+          alt="YouTube"
+          style={{ width: '80%', height: '80%' }}
+        />
+      </a>
     </div>
     
   );
