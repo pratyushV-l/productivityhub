@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import * as math from "mathjs";
 
 const Calculator: React.FC<{ onClose: () => void }> = ({}) => {
   const [input, setInput] = useState<string>("");
@@ -17,8 +18,7 @@ const Calculator: React.FC<{ onClose: () => void }> = ({}) => {
 
   const handleCalculate = () => {
     try {
-      // eslint-disable-next-line no-eval
-      const result = eval(input);
+      const result = math.evaluate(input.replace(/pi/g, "Math.PI").replace(/e/g, "Math.E"));
       setInput(result.toString());
     } catch {
       setInput("Error");
