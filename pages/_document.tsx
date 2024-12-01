@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4220301502477480"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9630191761036959"
             crossOrigin="anonymous"
           ></script>
         </Head>
